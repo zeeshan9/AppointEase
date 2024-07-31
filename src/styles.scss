@@ -1,0 +1,39 @@
+@import "./assets/material-theme";
+@import "./assets/new-palette";
+
+$container-max-widths: (
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1140px,
+) !default;
+
+@import "bootstrap/scss/bootstrap.scss";
+
+@import 'bootstrap/scss/bootstrap-reboot.scss';
+@import 'bootstrap/scss/bootstrap-grid';
+
+
+@import 'bootstrap/scss/nav';
+@import 'bootstrap/scss/reboot';
+@import 'bootstrap/scss/type';
+
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/utilities";
+
+@import "bootstrap/scss/mixins";
+
+$amp-title-font-size: 18pt;
+
+/* $utilities: This will now generate responsive variations of .border and .border-0 for each breakpoint */
+$utilities: map-merge(
+  $utilities, (
+    "border": map-merge(
+      map-get($utilities, "border"),
+      ( responsive: true ),
+    ),
+  )
+);
+
+

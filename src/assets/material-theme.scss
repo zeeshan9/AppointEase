@@ -1,0 +1,327 @@
+@use '@angular/material' as mat;
+
+
+// TODO(v15): As of v15 mat.legacy-core no longer includes default typography styles.
+//  The following line adds:
+//    1. Default typography styles for all components
+//    2. Styles for typography hierarchy classes (e.g. .mat-headline-1)
+//  If you specify typography styles for the components you use elsewhere, you should delete this line.
+//  If you don't need the default component typographies but still want the hierarchy styles,
+//  you can delete this line and instead use:
+//    `@include mat.legacy-typography-hierarchy(mat.define-legacy-typography-config());`
+@include mat.all-legacy-component-typographies();
+@include mat.legacy-core();
+
+// Define the default theme (same as the example above).
+// $amp-default-primary: mat-palette($mat-green);
+// $amp-default-accent:  mat-palette($mat-grey);
+// $amp-default-warn:  mat-palette($mat-red);
+$amp-default-primary: mat.define-palette((
+  50 : #e6f6ea,
+  100 : #c0e8c9,
+  200 : #96d9a6,
+  300 : #6bca82,
+  400 : #4cbe67,
+  500 : #2cb34c,
+  600 : #27ac45,
+  700 : #21a33c,
+  800 : #1b9a33,
+  900 : #108b24,
+  A100 : #bdffc5,
+  A200 : #8aff99,
+  A400 : #57ff6c,
+  A700 : #3dff56,
+  contrast: (
+      50 : #000000,
+      100 : #000000,
+      200 : #000000,
+      300 : #000000,
+      400 : #000000,
+      500 : #ffffff,
+      600 : #ffffff,
+      700 : #ffffff,
+      800 : #ffffff,
+      900 : #ffffff,
+      A100 : #000000,
+      A200 : #000000,
+      A400 : #000000,
+      A700 : #000000,
+  ))
+);
+
+$amp-default-accent: mat.define-palette((
+    50 : #ededed,
+    100 : #d1d1d1,
+    200 : #b3b3b3,
+    300 : #949494,
+    400 : #7d7d7d,
+    500 : #666666,
+    600 : #5e5e5e,
+    700 : #535353,
+    800 : #494949,
+    900 : #383838,
+    A100 : #f49c9c,
+    A200 : #ef6e6e,
+    A400 : #ff2a2a,
+    A700 : #ff1111,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+));
+
+$amp-default-warn: mat.define-palette((
+    50 : #fde9e7,
+    100 : #fac9c4,
+    200 : #f6a59d,
+    300 : #f28175,
+    400 : #f06658,
+    500 : #ed4b3a,
+    600 : #eb4434,
+    700 : #e83b2c,
+    800 : #e53325,
+    900 : #e02318,
+    A100 : #ffffff,
+    A200 : #ffe1e0,
+    A400 : #ffb0ad,
+    A700 : #ff9893,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+));
+
+$amp-orange-warn: mat.define-palette((
+    50 : #fdf2e7,
+    100 : #fadec4,
+    200 : #f6c89d,
+    300 : #f2b275,
+    400 : #f0a258,
+    500 : #ed913a,
+    600 : #eb8934,
+    700 : #e87e2c,
+    800 : #e57425,
+    900 : #e06218,
+    A100 : #ffffff,
+    A200 : #ffeae0,
+    A400 : #ffc8ad,
+    A700 : #ffb793,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+));
+
+$disabled-color: black;
+
+$amp-default-theme:   mat.define-light-theme($amp-default-primary, $amp-default-accent, $amp-default-warn);
+
+// Include the default theme styles.
+@include mat.all-legacy-component-themes($amp-default-theme);
+
+.toolbar{
+  @include mat.elevation(5);
+}
+
+.mat-raised-button {
+  color: white !important;
+}
+.mat-slide-toggle-label {
+  justify-content: space-between;
+}
+.mat-step-header .mat-step-icon{
+  color:white;
+}
+
+.mat-step-header .mat-step-icon-not-touched {
+  color: white
+}
+.mat-chip.mat-standard-chip.mat-chip-selected.mat-primary {
+  color: white
+}
+
+.md-drppicker td.active, .md-drppicker td.active:hover {
+  background-color: mat.get-color-from-palette($amp-default-primary) !important;
+}
+
+.elevate {
+  @include mat.elevation-transition;
+  @include mat.elevation(2);
+
+  &:active {
+    @include mat.elevation(8);
+  }
+}
+
+.background-primary {
+  background-color: mat.get-color-from-palette($amp-default-primary) !important;
+}
+
+.background-accent {
+  background-color: #666666 !important;
+}
+
+.background-warn {
+  background-color: mat.get-color-from-palette($amp-default-warn) !important;
+}
+
+.text-mat-primary {
+  color: mat.get-color-from-palette($amp-default-primary) !important;
+}
+
+.text-mat-accent {
+  color: mat.get-color-from-palette($amp-default-accent) !important;
+}
+
+.text-mat-warn {
+  color: mat.get-color-from-palette($amp-default-warn) !important;
+}
+
+.text-orange {
+  color: mat.get-color-from-palette($amp-orange-warn) !important;
+}
+
+.background-orange {
+  background-color: mat.get-color-from-palette($amp-orange-warn) !important;
+}
+
+.border-warn {
+  border-color: mat.get-color-from-palette($amp-default-warn) !important;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+}
+
+
+// Define an alternate dark theme.
+$dark-primary: mat.define-palette(mat.$blue-grey-palette);
+$dark-accent:  mat.define-palette(mat.$amber-palette, A200, A100, A400);
+$dark-warn:    mat.define-palette(mat.$deep-orange-palette);
+$dark-theme:   mat.define-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+// Include the alternative theme styles inside of a block with a CSS class. You can make this
+// CSS class whatever you want. In this example, any component inside of an element with
+// `.unicorn-dark-theme` will be affected by this alternate dark theme instead of the default theme.
+.amp-dark-theme {
+  @include mat.all-legacy-component-themes($dark-theme);
+}
+
+
+$anms-freshair-theme: mat.define-light-theme(
+  $amp-default-primary,
+);
+
+
+
+/* mixins */
+@mixin anms-app-component-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $amp-orange: #ff9933;
+}
+
+@mixin custom-components-theme($theme) {
+  @include anms-styles-reset-theme($theme);
+  @include anms-app-component-theme($theme);
+}
+
+
+@mixin anms-styles-reset-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $foreground: map-get($theme, foreground);
+  
+  a {
+      color: mat.get-color-from-palette($foreground, text);
+      
+      &:hover {
+          color: mat.get-color-from-palette($accent);
+      }
+  }
+
+  code {
+    color: mat.get-color-from-palette($accent, lighter-contrast);
+    background-color: mat.get-color-from-palette($accent, lighter);
+  }
+}
+
+@mixin anms-app-component-theme($theme) {
+$primary: map-get($theme, primary);
+$accent: map-get($theme, accent);
+$warn: map-get($theme, warn);
+$amp-orange: #ff9933;
+mat-sidenav-container {
+  
+.amp-theme {
+  @include mat.all-legacy-component-themes($anms-freshair-theme);
+  @include custom-components-theme($anms-freshair-theme);
+}
+
+.footer {
+  color: mat.get-color-from-palette($primary, lighter);
+  // background-color: mat-color($primary, darker);
+
+  .links,
+  .signature {
+  a {
+      color: mat.get-color-from-palette($primary, lighter);
+      &:hover {
+      color: mat.get-color-from-palette($accent);
+      }
+  }
+  }
+}
+}}
+
+$new-typography: mat.define-typography-config(
+  $font-family: 'Red Hat Display',
+);
+
+@include mat.typography-hierarchy($new-typography);
+$theme: mat.define-light-theme(
+  (
+    typography: $new-typography,
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-legacy-component-themes($theme);

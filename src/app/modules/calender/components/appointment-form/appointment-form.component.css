@@ -1,0 +1,19 @@
+.appointment-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  mat-form-field {
+    margin-bottom: 16px;
+  }
+  
+  button {
+    align-self: flex-start;
+  }
+
+  .full-width {
+    width: 100%;
+  }
+  

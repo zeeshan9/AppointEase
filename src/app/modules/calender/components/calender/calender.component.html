@@ -1,0 +1,32 @@
+<div class="calendar-container">
+  <mat-toolbar class="toolbar center">
+    <span>Calendar</span>
+    <span class="spacer"></span>
+    <button mat-icon-button (click)="addAppointment()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </mat-toolbar>
+  
+  <div class="calendar">
+    <div class="calendar-header">
+      <button mat-icon-button (click)="previousMonth()">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      <span>{{ viewDate | date: 'MMMM yyyy' }}</span>
+      <button mat-icon-button (click)="nextMonth()">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+    <div class="calendar-grid">
+      <div *ngFor="let day of daysInMonth" class="calendar-day">
+        <div class="day-label">{{ day | date: 'd' }}</div>
+        <div *ngFor="let appointment of getAppointmentsForDay(day)" >
+          <app-appointment-item
+          [appointment]="appointment"
+          (cdkDragEnded)="onDragEnded($event, appointment)"
+        ></app-appointment-item>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  
+  .toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #1976d2;
+    color: white;
+  }
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  .center {
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+  }
+
+  .calendar {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+  }
+
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+  }
+
+  .calendar-day {
+    border: 1px solid #ccc;
+    padding: 8px;
+    position: relative;
+    background: white;
+
+    .day-label {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .appointment-title {
+      font-weight: bold;
+    }
+
+    .appointment-time {
+      font-size: 0.8em;
+      color: #666;
+    }
+  }
+}
+
